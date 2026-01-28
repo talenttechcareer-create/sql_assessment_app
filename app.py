@@ -662,7 +662,7 @@ if st.session_state.admin_authenticated:
                 st.metric("Unique Users", combined_df['Name'].nunique() if 'Name' in combined_df.columns else 'N/A')
             
             # Detailed view option
-            with st.expander("??? View Detailed Submissions"):
+            with st.expander(" View Detailed Submissions"):
                 for idx, row in combined_df.iterrows():
                     st.markdown(f"### {row['Name']} ({row['Email']})")
                     col1, col2, col3 = st.columns(3)

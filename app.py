@@ -741,7 +741,7 @@ with col2:
         st.markdown("🔷 **UE**")
     
     st.markdown("<h2 style='text-align: center; color: #6B21A8;'>SQL Mastery Training Program</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: #757575; font-size: 14px;'>Employee Job Training - SQL Skills Certification</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; color: #757575; font-size: 14px;'>Employee Job Training - SQL Skills Assessment</p>", unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -1076,11 +1076,11 @@ if (st.session_state.current_q >= len(st.session_state.shuffled_questions) or
     
     # Display score with color coding
     if score_percentage >= 80:
-        st.success(f"🎖️ **PASSED** - Score: {correct_count}/{total} ({score_percentage:.1f}%)")
+        st.success(f"� You've completed the assessment! - Score: {correct_count}/{total} ({score_percentage:.1f}%)")
     elif score_percentage >= 60:
-        st.warning(f"⚠️ **NEEDS IMPROVEMENT** - Score: {correct_count}/{total} ({score_percentage:.1f}%)")
+        st.success(f"🎉 You've completed the assessment! - Score: {correct_count}/{total} ({score_percentage:.1f}%)")
     else:
-        st.error(f"❌ **FAILED** - Score: {correct_count}/{total} ({score_percentage:.1f}%)")
+        st.success(f"🎉 You've completed the assessment! - Score: {correct_count}/{total} ({score_percentage:.1f}%)")
     
     st.metric("Your Score", f"{correct_count}/{total} ({score_percentage:.1f}%)")
     
@@ -1127,14 +1127,7 @@ if (st.session_state.current_q >= len(st.session_state.shuffled_questions) or
                     st.error("? Incorrect")
             st.divider()
     
-    # Reset button
-    if st.button("Restart Assessment"):
-        st.session_state.current_q = 0
-        st.session_state.answers = []
-        st.session_state.show_feedback = False
-        st.session_state.user_sql_input = ""
-        st.rerun()
-    
+
     # ==========================
     # Footer with UE Branding (Only on Results)
     # ==========================
@@ -1142,7 +1135,7 @@ if (st.session_state.current_q >= len(st.session_state.shuffled_questions) or
     st.markdown("""
         <div style='text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(107, 33, 168, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%); border-radius: 8px; margin-top: 2rem;'>
             <p style='color: #6B21A8; font-weight: 600; margin: 0;'>🔷 UE Platform - Employee Training</p>
-            <p style='color: #757575; font-size: 13px; margin: 0.5rem 0 0 0;'>SQL Mastery Program for Employee Certification</p>
+            <p style='color: #757575; font-size: 13px; margin: 0.5rem 0 0 0;'>SQL Mastery Program for Employee Assessment</p>
             <p style='color: #A78BFA; font-size: 11px; margin: 1rem 0 0 0;'>© 2026 UE Platform. All rights reserved.</p>
         </div>
     """, unsafe_allow_html=True)

@@ -732,11 +732,20 @@ if st.session_state.admin_authenticated:
     if submission_files:
         st.info(f"✅ Total employee submissions: {len(submission_files)}")
         
-        # Load all submissions
+        # Load all submissions and pad missing Qx_Answer columns
         all_submissions = []
+        num_questions = 34
+        answer_cols = [f"Q{i}_Answer" for i in range(1, num_questions+1)]
         for file in submission_files:
             try:
                 df = pd.read_csv(f"submissions/{file}")
+                # Pad missing Qx_Answer columns with empty or default values
+                for col in answer_cols:
+                    if col not in df.columns:
+                        df[col] = ''
+                # Ensure columns are in the correct order
+                base_cols = [c for c in df.columns if not c.startswith('Q')]
+                df = df[base_cols + answer_cols]
                 all_submissions.append(df)
             except Exception as e:
                 st.warning(f"Error reading {file}: {e}")

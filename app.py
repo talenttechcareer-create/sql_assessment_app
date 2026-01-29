@@ -751,13 +751,17 @@ if st.session_state.admin_authenticated:
                 st.warning(f"Error reading {file}: {e}")
         
         if all_submissions:
-            # Normalize Qx_Answer columns to boolean (True/False) and replace None with False
+            # Keep a copy of the original (string) DataFrame for export
+            all_submissions_export = [df.copy() for df in all_submissions]
+            # Normalize Qx_Answer columns to boolean (True/False) and replace None with False for display only
             for df in all_submissions:
                 for col in answer_cols:
                     if col in df.columns:
                         df[col] = df[col].map(lambda x: True if str(x).strip().lower() == 'true' else (False if str(x).strip().lower() == 'false' else False))
-            # Combine all submissions
+            # Combine all submissions for display
             combined_df = pd.concat(all_submissions, ignore_index=True)
+            # Combine all submissions for export (original values)
+            combined_df_export = pd.concat(all_submissions_export, ignore_index=True)
             
             # Display submissions table
             st.subheader("All Employee Submissions")
@@ -769,7 +773,7 @@ if st.session_state.admin_authenticated:
             
             with col1:
                 # Export as CSV
-                csv_data = combined_df.to_csv(index=False)
+                csv_data = combined_df_export.to_csv(index=False)
                 st.download_button(
                     label=" Download as CSV",
                     data=csv_data,

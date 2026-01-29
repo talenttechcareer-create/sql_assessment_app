@@ -751,6 +751,11 @@ if st.session_state.admin_authenticated:
                 st.warning(f"Error reading {file}: {e}")
         
         if all_submissions:
+            # Normalize Qx_Answer columns to boolean (True/False) and replace None with False
+            for df in all_submissions:
+                for col in answer_cols:
+                    if col in df.columns:
+                        df[col] = df[col].map(lambda x: True if str(x).strip().lower() == 'true' else (False if str(x).strip().lower() == 'false' else False))
             # Combine all submissions
             combined_df = pd.concat(all_submissions, ignore_index=True)
             

@@ -532,8 +532,11 @@ st.markdown("""
         }
         
         /* Progress bar */
+        .stProgress > div > div > div > div {
+            background-color: #22C55E !important;
+        }
         .stProgress > div > div > div {
-            background-color: #6B21A8;
+            background-color: #E5E7EB !important;
         }
         
         /* Text input and text area */

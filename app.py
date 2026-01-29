@@ -4,6 +4,8 @@ import pandas as pd
 import os
 import io
 from datetime import datetime
+import random
+import hashlib
 
 # ==========================
 # Normalization function
@@ -472,6 +474,80 @@ QUESTIONS = [
 ]
 
 # ==========================
+# Question Complexity Assignment & Shuffling
+# ==========================
+
+def assign_complexity_level(question):
+    """
+    Assign complexity levels based on SQL features:
+    1 (Beginner): Simple SELECT, WHERE with basic operators
+    2 (Intermediate): JOINs, GROUP BY, HAVING, subqueries, LIKE
+    3 (Advanced): Complex joins, multiple aggregations, complex WHERE, CASE statements
+    """
+    solution = question.get("solution", "").lower()
+    num_tables = len(question.get("tables", []))
+    
+    # Count SQL keywords
+    joins = solution.count("join")
+    group_by = solution.count("group by")
+    having = solution.count("having")
+    case_when = solution.count("case")
+    subquery = solution.count("select") > 1
+    distinct = solution.count("distinct")
+    
+    complexity_score = 0
+    
+    # Basic scoring
+    if joins > 0:
+        complexity_score += joins * 2
+    if group_by > 0:
+        complexity_score += 1
+    if having > 0:
+        complexity_score += 1
+    if case_when > 0:
+        complexity_score += 2
+    if subquery:
+        complexity_score += 2
+    if distinct:
+        complexity_score += 0.5
+    
+    # Table count factor
+    if num_tables > 2:
+        complexity_score += 1
+    
+    # Determine level
+    if complexity_score >= 4:
+        return 3  # Advanced
+    elif complexity_score >= 1.5:
+        return 2  # Intermediate
+    else:
+        return 1  # Beginner
+
+# Add complexity level to each question
+for question in QUESTIONS:
+    question["complexity"] = assign_complexity_level(question)
+
+def get_shuffled_questions(user_name):
+    """
+    Create a deterministic shuffled order of questions for a user.
+    Uses the user's name as a seed to ensure the same user always gets the same order,
+    but different users get different orders.
+    """
+    # Create a hash seed from the user's name
+    seed = int(hashlib.md5(user_name.lower().encode()).hexdigest(), 16)
+    
+    # Create a copy of questions with their original indices
+    indexed_questions = list(enumerate(QUESTIONS))
+    
+    # Shuffle based on user seed
+    random.seed(seed)
+    random.shuffle(indexed_questions)
+    
+    # Return just the shuffled questions
+    shuffled = [q for _, q in indexed_questions]
+    return shuffled
+
+# ==========================
 # Streamlit App
 # ==========================
 st.set_page_config(
@@ -684,6 +760,10 @@ if "user_sql_input" not in st.session_state:
     st.session_state.user_sql_input = ""
 if "admin_authenticated" not in st.session_state:
     st.session_state.admin_authenticated = False
+if "shuffled_questions" not in st.session_state:
+    st.session_state.shuffled_questions = None
+if "current_user_name" not in st.session_state:
+    st.session_state.current_user_name = None
 
 # ==========================
 # Admin Mode Check - Show at Top
@@ -862,12 +942,19 @@ if not student_name or not student_email:
     st.warning(" Please enter both your name and email to begin the assessment.")
     st.stop()
 
-# Progress bar
-progress = min((st.session_state.current_q + 1) / len(QUESTIONS), 1.0)
-st.progress(progress)
-st.subheader(f"Question {st.session_state.current_q + 1} of {len(QUESTIONS)}")
+# Initialize shuffled questions for this user if not already done or if user changed
+if st.session_state.shuffled_questions is None or st.session_state.current_user_name != student_name:
+    st.session_state.shuffled_questions = get_shuffled_questions(student_name)
+    st.session_state.current_user_name = student_name
+    st.session_state.current_q = 0
+    st.session_state.answers = []
 
-q = QUESTIONS[st.session_state.current_q]
+# Progress bar
+progress = min((st.session_state.current_q + 1) / len(st.session_state.shuffled_questions), 1.0)
+st.progress(progress)
+st.subheader(f"Question {st.session_state.current_q + 1} of {len(st.session_state.shuffled_questions)}")
+
+q = st.session_state.shuffled_questions[st.session_state.current_q]
 st.markdown(f"**Question:** {q['question']}")
 
 # Display description and table information
@@ -953,7 +1040,7 @@ with col1:
                 st.session_state.feedback_message = "? Incorrect."
 
 with col2:
-    if st.session_state.current_q + 1 < len(QUESTIONS):
+    if st.session_state.current_q + 1 < len(st.session_state.shuffled_questions):
         if st.button("Next Question", disabled=not st.session_state.show_feedback):
             st.session_state.current_q += 1
             st.session_state.show_feedback = False
@@ -962,7 +1049,7 @@ with col2:
     else:
         if st.button("Show Results", disabled=not st.session_state.show_feedback):
             st.session_state.show_feedback = False
-            st.session_state.current_q = len(QUESTIONS)  # Mark as completed
+            st.session_state.current_q = len(st.session_state.shuffled_questions)  # Mark as completed
 
 # Show feedback if available
 if st.session_state.show_feedback:
@@ -976,8 +1063,8 @@ if st.session_state.show_feedback:
             st.write(f"Your answer: `{st.session_state.answers[-1]['your_answer']}`")
 
 # Show results when all questions are completed
-if (st.session_state.current_q >= len(QUESTIONS) or 
-    (len(st.session_state.answers) >= len(QUESTIONS) and st.session_state.current_q == len(QUESTIONS) - 1)):
+if (st.session_state.current_q >= len(st.session_state.shuffled_questions) or 
+    (len(st.session_state.answers) >= len(st.session_state.shuffled_questions) and st.session_state.current_q == len(st.session_state.shuffled_questions) - 1)):
     
     st.success(" You have completed all questions!")
     

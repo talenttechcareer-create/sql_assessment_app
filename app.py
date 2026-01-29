@@ -551,7 +551,7 @@ def get_shuffled_questions(user_name):
 # Streamlit App
 # ==========================
 st.set_page_config(
-    page_title="SQL Assessment - UE Platform", 
+    page_title="SQL Assessment - Employee Training", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -1129,13 +1129,13 @@ if (st.session_state.current_q >= len(st.session_state.shuffled_questions) or
     
 
     # ==========================
-    # Footer with UE Branding (Only on Results)
+    # Footer (Only on Results)
     # ==========================
     st.divider()
     st.markdown("""
         <div style='text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(107, 33, 168, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%); border-radius: 8px; margin-top: 2rem;'>
-            <p style='color: #6B21A8; font-weight: 600; margin: 0;'>🔷 UE Platform - Employee Training</p>
-            <p style='color: #757575; font-size: 13px; margin: 0.5rem 0 0 0;'>SQL Mastery Program for Employee Assessment</p>
-            <p style='color: #A78BFA; font-size: 11px; margin: 1rem 0 0 0;'>© 2026 UE Platform. All rights reserved.</p>
+            <p style='color: #6B21A8; font-weight: 600; margin: 0;'>SQL Assessment Platform</p>
+            <p style='color: #757575; font-size: 13px; margin: 0.5rem 0 0 0;'>SQL Mastery Program for Employee Training</p>
+            <p style='color: #A78BFA; font-size: 11px; margin: 1rem 0 0 0;'>© 2026 SQL Assessment. All rights reserved.</p>
         </div>
     """, unsafe_allow_html=True)

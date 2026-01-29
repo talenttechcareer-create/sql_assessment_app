@@ -651,7 +651,13 @@ col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     # Display logo
     try:
-        st.image("We_logo.svg695283768.png", width=100)
+        # Try to display logo, show placeholder if missing
+        import pathlib
+        logo_path = "We_logo.svg695283768.png"
+        if pathlib.Path(logo_path).exists():
+            st.image(logo_path, width=100)
+        else:
+            st.warning("Logo not found. Please add 'We_logo.svg695283768.png' to the project directory.")
     except:
         st.markdown("🔷 **UE**")
     

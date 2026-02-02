@@ -6,6 +6,7 @@ import io
 from datetime import datetime
 import random
 import hashlib
+import pathlib
 
 # ==========================
 # Normalization function

@@ -474,6 +474,192 @@ QUESTIONS = [
 ]
 
 # ==========================
+# Power BI Question Bank with MCQ
+# ==========================
+POWERBI_QUESTIONS = [
+    {
+        "id": 101,
+        "type": "mcq",
+        "question": "A dataset that includes _ can be used to create a map visualization. (Select all that apply.)",
+        "options": ["A. house numbers, street names", "B. geospatial data", "C. city names, country names", "D. longitude, latitude"],
+        "correct_answers": ["B", "C", "D"],
+        "complexity": "easy",
+        "topic": "Visualizations"
+    },
+    {
+        "id": 102,
+        "type": "mcq",
+        "question": "How do you create a chart visual in Power BI Desktop Report view? (Select all that apply.)",
+        "options": ["A. Click New Visual on the Home tab.", "B. Select a chart visual in the Visualizations pane.", "C. Click New Visual on the Data Tools tab.", "D. Select a field that contains values."],
+        "correct_answers": ["A", "B", "D"],
+        "complexity": "easy",
+        "topic": "Report Creation"
+    },
+    {
+        "id": 103,
+        "type": "mcq",
+        "question": "What daily sales number does this DAX measure formula calculate? CALCULATE(SUM([Sales]),DATESMTD([Date]))",
+        "options": ["A. running total sales in each month that starts over each month", "B. total sales for the entire month", "C. running total in entire year for the entire month", "D. rolling average over 12 months of sales"],
+        "correct_answers": ["A"],
+        "complexity": "medium",
+        "topic": "DAX Functions"
+    },
+    {
+        "id": 104,
+        "type": "mcq",
+        "question": "You are creating a report in Power BI Desktop and want to restrict the data to records where Country='Canada'. To accomplish this, what do you need to create?",
+        "options": ["A. a directive", "B. a custom column", "C. an indexed column", "D. a parameter"],
+        "correct_answers": ["B"],
+        "complexity": "medium",
+        "topic": "Data Filtering"
+    },
+    {
+        "id": 105,
+        "type": "mcq",
+        "question": "What is the primary benefit of using visualizations such as line charts, bar charts, and column charts?",
+        "options": ["A. They are easier to create than other visualizations.", "B. They require fewer resources than more complex visualizations.", "C. They are also used in Excel, so they feel familiar to users.", "D. They are free to use."],
+        "correct_answers": ["C"],
+        "complexity": "easy",
+        "topic": "Visualizations"
+    },
+    {
+        "id": 106,
+        "type": "mcq",
+        "question": "In Power BI service, deleted pages are available after deletion until",
+        "options": ["A. midnight of the day on which they are deleted", "B. the next billing cycle", "C. you empty the Recycle Bin", "D. the report has been saved"],
+        "correct_answers": ["C"],
+        "complexity": "medium",
+        "topic": "Power BI Service"
+    },
+    {
+        "id": 107,
+        "type": "mcq",
+        "question": "You need to add a required color to a bar chart. How can you add an exact color value to an existing bar chart?",
+        "options": ["A. Click the color in the visual (e.g., the bars) and right-click to select the color.", "B. You cannot select custom colors in a bar chart or related visual.", "C. Select the value closest to this color from the color formatting options.", "D. Enter the hex value into the color formatting options."],
+        "correct_answers": ["D"],
+        "complexity": "medium",
+        "topic": "Formatting"
+    },
+    {
+        "id": 108,
+        "type": "mcq",
+        "question": "The Excel function IF is nearly the same as which DAX function?",
+        "options": ["A. SWITCH", "B. IF", "C. IFX", "D. IFS"],
+        "correct_answers": ["B"],
+        "complexity": "easy",
+        "topic": "DAX Functions"
+    },
+    {
+        "id": 109,
+        "type": "mcq",
+        "question": "Power BI's Publish to Web option allows you to embed visualizations within _. (Select all that apply.)",
+        "options": ["A. blog posts", "B. email messages", "C. web sites", "D. text messages"],
+        "correct_answers": ["A", "C"],
+        "complexity": "medium",
+        "topic": "Power BI Service"
+    },
+    {
+        "id": 110,
+        "type": "mcq",
+        "question": "What can you do within the Power BI Desktop Query Settings pane? (Select all that apply.)",
+        "options": ["A. Rename a query step.", "B. Delete a query step.", "C. Delete from one query step to the end.", "D. Reorder the steps."],
+        "correct_answers": ["A", "B", "C", "D"],
+        "complexity": "medium",
+        "topic": "Power Query"
+    },
+    {
+        "id": 111,
+        "type": "mcq",
+        "question": "After you enter text in the Q&A box or Q&A visual, Power BI will _ your data to create a list of appropriate visualizations.",
+        "options": ["A. filter and group", "B. sort and filter", "C. sort, filter, and group", "D. sort and group"],
+        "correct_answers": ["B"],
+        "complexity": "easy",
+        "topic": "Q&A Feature"
+    },
+    {
+        "id": 112,
+        "type": "mcq",
+        "question": "You just deleted a dashboard in the Power BI service and want to get it back. What should you do?",
+        "options": ["A. Press Ctrl+Z.", "B. Select Undo from the toolbar.", "C. You cannot undo the deletion of a dashboard.", "D. Recover it from the Recycle Bin."],
+        "correct_answers": ["D"],
+        "complexity": "easy",
+        "topic": "Power BI Service"
+    },
+    {
+        "id": 113,
+        "type": "mcq",
+        "question": "You have a sales data source and want to relate the tables. The table that contains sales transactions is a _ table that contains product information is a _ table.",
+        "options": ["A. dimension; fact", "B. lookup; data", "C. fact; dimension", "D. data; supporting"],
+        "correct_answers": ["C"],
+        "complexity": "medium",
+        "topic": "Data Modeling"
+    },
+    {
+        "id": 114,
+        "type": "mcq",
+        "question": "When you are creating a formula in the Power Query Editor, what does IntelliSense provide a list of? (Select all that apply.)",
+        "options": ["A. columns", "B. tables", "C. functions", "D. data sources"],
+        "correct_answers": ["A", "C"],
+        "complexity": "easy",
+        "topic": "Power Query"
+    },
+    {
+        "id": 115,
+        "type": "mcq",
+        "question": "You want to delete a dataset but the Power BI service will not let you. What is the most likely cause?",
+        "options": ["A. A tile on your dashboard contains data from that dataset.", "B. The dataset is already being used in a published app.", "C. A report contains data from that dataset.", "D. The dataset is in your workspace."],
+        "correct_answers": ["C"],
+        "complexity": "medium",
+        "topic": "Power BI Service"
+    },
+    {
+        "id": 116,
+        "type": "mcq",
+        "question": "One of your data columns includes the city, state, and postal code line of a mailing address. You need to separate the fields so you can access the geospatial elements for a map visualization. What transformation should you apply?",
+        "options": ["A. Replace values", "B. Split column", "C. Modify data type", "D. Best fit geospatial"],
+        "correct_answers": ["B"],
+        "complexity": "medium",
+        "topic": "Data Transformation"
+    },
+    {
+        "id": 117,
+        "type": "mcq",
+        "question": "What tool can you use in Power BI Desktop to reduce data?",
+        "options": ["A. report editor", "B. Power Query Editor", "C. dashboard", "D. data modeler"],
+        "correct_answers": ["B"],
+        "complexity": "easy",
+        "topic": "Power Query"
+    },
+    {
+        "id": 118,
+        "type": "mcq",
+        "question": "What is NOT a valid data connection type for Power BI Desktop?",
+        "options": ["A. Azure data", "B. file data", "C. relationships data", "D. database data"],
+        "correct_answers": ["C"],
+        "complexity": "medium",
+        "topic": "Data Connections"
+    },
+    {
+        "id": 119,
+        "type": "mcq",
+        "question": "Which data type can be uploaded directly to powerbi.com?",
+        "options": ["A. Excel files", "B. comma-separated value (CSV) files", "C. Power BI Desktop files", "D. all of these answers"],
+        "correct_answers": ["D"],
+        "complexity": "easy",
+        "topic": "Power BI Service"
+    },
+    {
+        "id": 120,
+        "type": "mcq",
+        "question": "What does Power BI Premium provide?",
+        "options": ["A. Power BI Report Server", "B. report sharing without a per-user license", "C. all of these answers", "D. dedicated capacity for your company"],
+        "correct_answers": ["C"],
+        "complexity": "medium",
+        "topic": "Power BI Premium"
+    }
+]
+
+# ==========================
 # Question Complexity Assignment & Shuffling
 # ==========================
 
@@ -527,25 +713,37 @@ def assign_complexity_level(question):
 for question in QUESTIONS:
     question["complexity"] = assign_complexity_level(question)
 
+# Assign complexity to PowerBI questions (they already have complexity field)
+for question in POWERBI_QUESTIONS:
+    if "complexity" not in question:
+        complexity_map = {"easy": 1, "medium": 2, "hard": 3}
+        question["complexity"] = complexity_map.get(question.get("complexity", "medium"), 2)
+
 def get_shuffled_questions(user_name):
     """
     Create a deterministic shuffled order of questions for a user.
-    Uses the user's name as a seed to ensure the same user always gets the same order,
-    but different users get different orders.
+    - Returns 20 SQL questions + 20 PowerBI questions (40 total)
+    - Uses user's name as seed for consistent randomization
     """
     # Create a hash seed from the user's name
     seed = int(hashlib.md5(user_name.lower().encode()).hexdigest(), 16)
-    
-    # Create a copy of questions with their original indices
-    indexed_questions = list(enumerate(QUESTIONS))
-    
-    # Shuffle based on user seed
     random.seed(seed)
-    random.shuffle(indexed_questions)
     
-    # Return just the shuffled questions
-    shuffled = [q for _, q in indexed_questions]
-    return shuffled
+    # Select 20 SQL questions (balance by complexity)
+    sql_questions = list(QUESTIONS)
+    random.shuffle(sql_questions)
+    selected_sql = sql_questions[:20]
+    
+    # Select 20 PowerBI questions (balance by complexity)
+    powerbi_questions = list(POWERBI_QUESTIONS)
+    random.shuffle(powerbi_questions)
+    selected_powerbi = powerbi_questions[:20]
+    
+    # Combine and shuffle together
+    all_questions = selected_sql + selected_powerbi
+    random.shuffle(all_questions)
+    
+    return all_questions
 
 # ==========================
 # Streamlit App
@@ -1005,69 +1203,142 @@ with st.expander(" Question Details & Schema"):
                 st.write(f"  Relationship: {table_data['relationship']}")
     
     # Show relationship info if available
-    if 'relationship' in q['table_info']:
+    if 'relationship' in q.get('table_info', {}):
         st.markdown(f"**Relationship:** {q['table_info']['relationship']}")
 
-# Text area for SQL input
-user_sql = st.text_area(
-    "Enter your SQL query here:", 
-    height=120,
-    value=st.session_state.user_sql_input,
-    key=f"sql_input_{st.session_state.current_q}"
-)
-
-col1, col2 = st.columns([1, 1])
-
-with col1:
-    if st.button("Submit Answer", type="primary"):
-        if not user_sql.strip():
-            st.warning("Please enter an answer before submitting.")
-        else:
-            # Normalize & compare
-            normalized_candidate = normalize_sql(user_sql)
-            normalized_solution = normalize_sql(q["solution"])
-            
-            correct = normalized_candidate == normalized_solution
-            
-            # Store answer
-            st.session_state.answers.append({
-                "question_id": q["id"],
-                "question": q["question"],
-                "your_answer": user_sql,
-                "correct_answer": q["solution"],
-                "is_correct": correct
-            })
-            
-            # Show feedback
-            st.session_state.show_feedback = True
-            st.session_state.feedback_correct = correct
-            if correct:
-                st.session_state.feedback_message = "? Correct!"
+# Determine question type and display accordingly
+if q.get("type") == "mcq":
+    # PowerBI MCQ Question
+    st.markdown("### Multiple Choice Question")
+    
+    # Display options
+    selected_options = []
+    is_multiselect = len(q["correct_answers"]) > 1
+    
+    if is_multiselect:
+        st.info("⚠️ Select all that apply")
+        for option in q["options"]:
+            if st.checkbox(option, key=f"option_{st.session_state.current_q}_{option}"):
+                # Extract letter (A, B, C, D)
+                letter = option.split(".")[0].strip()
+                selected_options.append(letter)
+    else:
+        selected_option = st.radio("Select the correct answer:", q["options"], key=f"option_{st.session_state.current_q}")
+        if selected_option:
+            letter = selected_option.split(".")[0].strip()
+            selected_options = [letter]
+    
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        if st.button("Submit Answer", type="primary", key=f"submit_mcq_{st.session_state.current_q}"):
+            if not selected_options:
+                st.warning("Please select an answer before submitting.")
             else:
-                st.session_state.feedback_message = "? Incorrect."
-
-with col2:
-    if st.session_state.current_q + 1 < len(st.session_state.shuffled_questions):
-        if st.button("Next Question", disabled=not st.session_state.show_feedback):
-            st.session_state.current_q += 1
-            st.session_state.show_feedback = False
-            st.session_state.user_sql_input = ""
-            st.rerun()
-    else:
-        if st.button("Show Results", disabled=not st.session_state.show_feedback):
-            st.session_state.show_feedback = False
-            st.session_state.current_q = len(st.session_state.shuffled_questions)  # Mark as completed
-
-# Show feedback if available
-if st.session_state.show_feedback:
-    if st.session_state.feedback_correct:
-        st.success(st.session_state.feedback_message)
-    else:
-        st.error(st.session_state.feedback_message)
-        with st.expander("View solution"):
-            st.code(q["solution"], language="sql")
-            st.markdown("**Explanation:**")
-            st.write(f"Your answer: `{st.session_state.answers[-1]['your_answer']}`")
+                # Check if selected answers match correct answers
+                correct = set(selected_options) == set(q["correct_answers"])
+                
+                # Store answer
+                st.session_state.answers.append({
+                    "question_id": q["id"],
+                    "question": q["question"],
+                    "your_answer": ", ".join(selected_options),
+                    "correct_answer": ", ".join(q["correct_answers"]),
+                    "is_correct": correct,
+                    "type": "mcq"
+                })
+                
+                # Show feedback
+                st.session_state.show_feedback = True
+                st.session_state.feedback_correct = correct
+                if correct:
+                    st.session_state.feedback_message = "✅ Correct!"
+                else:
+                    st.session_state.feedback_message = "❌ Incorrect."
+    
+    with col2:
+        if st.session_state.current_q + 1 < len(st.session_state.shuffled_questions):
+            if st.button("Next Question", disabled=not st.session_state.show_feedback, key=f"next_mcq_{st.session_state.current_q}"):
+                st.session_state.current_q += 1
+                st.session_state.show_feedback = False
+                st.session_state.user_sql_input = ""
+                st.rerun()
+        else:
+            if st.button("Show Results", disabled=not st.session_state.show_feedback, key=f"results_mcq_{st.session_state.current_q}"):
+                st.session_state.show_feedback = False
+                st.session_state.current_q = len(st.session_state.shuffled_questions)
+    
+    # Show feedback for MCQ
+    if st.session_state.show_feedback:
+        if st.session_state.feedback_correct:
+            st.success(st.session_state.feedback_message)
+        else:
+            st.error(st.session_state.feedback_message)
+            with st.expander("View correct answer"):
+                st.markdown(f"**Correct Answer(s):** {', '.join(q['correct_answers'])}")
+                st.markdown("**Your Answer(s):** " + st.session_state.answers[-1]['your_answer'])
+else:
+    # SQL Question
+    user_sql = st.text_area(
+        "Enter your SQL query here:", 
+        height=120,
+        value=st.session_state.user_sql_input,
+        key=f"sql_input_{st.session_state.current_q}"
+    )
+    
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        if st.button("Submit Answer", type="primary", key=f"submit_sql_{st.session_state.current_q}"):
+            if not user_sql.strip():
+                st.warning("Please enter an answer before submitting.")
+            else:
+                # Normalize & compare
+                normalized_candidate = normalize_sql(user_sql)
+                normalized_solution = normalize_sql(q["solution"])
+                
+                correct = normalized_candidate == normalized_solution
+                
+                # Store answer
+                st.session_state.answers.append({
+                    "question_id": q["id"],
+                    "question": q["question"],
+                    "your_answer": user_sql,
+                    "correct_answer": q["solution"],
+                    "is_correct": correct,
+                    "type": "sql"
+                })
+                
+                # Show feedback
+                st.session_state.show_feedback = True
+                st.session_state.feedback_correct = correct
+                if correct:
+                    st.session_state.feedback_message = "✅ Correct!"
+                else:
+                    st.session_state.feedback_message = "❌ Incorrect."
+    
+    with col2:
+        if st.session_state.current_q + 1 < len(st.session_state.shuffled_questions):
+            if st.button("Next Question", disabled=not st.session_state.show_feedback, key=f"next_sql_{st.session_state.current_q}"):
+                st.session_state.current_q += 1
+                st.session_state.show_feedback = False
+                st.session_state.user_sql_input = ""
+                st.rerun()
+        else:
+            if st.button("Show Results", disabled=not st.session_state.show_feedback, key=f"results_sql_{st.session_state.current_q}"):
+                st.session_state.show_feedback = False
+                st.session_state.current_q = len(st.session_state.shuffled_questions)
+    
+    # Show feedback for SQL
+    if st.session_state.show_feedback:
+        if st.session_state.feedback_correct:
+            st.success(st.session_state.feedback_message)
+        else:
+            st.error(st.session_state.feedback_message)
+            with st.expander("View solution"):
+                st.code(q["solution"], language="sql")
+                st.markdown("**Explanation:**")
+                st.write(f"Your answer: `{st.session_state.answers[-1]['your_answer']}`")
 
 # Show results when all questions are completed
 if (st.session_state.current_q >= len(st.session_state.shuffled_questions) or 
@@ -1125,13 +1396,17 @@ if (st.session_state.current_q >= len(st.session_state.shuffled_questions) or
             col1, col2 = st.columns([3, 1])
             with col1:
                 st.markdown(f"**Q{ans['question_id']}: {ans['question']}**")
-                st.markdown(f"- Your Answer: `{ans['your_answer']}`")
-                st.markdown(f"- Correct Answer: `{ans['correct_answer']}`")
+                if ans.get("type") == "mcq":
+                    st.markdown(f"- Your Answer(s): **{ans['your_answer']}**")
+                    st.markdown(f"- Correct Answer(s): **{ans['correct_answer']}**")
+                else:
+                    st.markdown(f"- Your Answer: `{ans['your_answer']}`")
+                    st.markdown(f"- Correct Answer: `{ans['correct_answer']}`")
             with col2:
                 if ans['is_correct']:
-                    st.success("? Correct")
+                    st.success("✅ Correct")
                 else:
-                    st.error("? Incorrect")
+                    st.error("❌ Incorrect")
             st.divider()
     
 

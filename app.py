@@ -720,6 +720,16 @@ st.markdown("""
             font-size: 24px;
             margin-top: 0.5rem;
         }
+        
+        /* Hide GitHub icon (top-right) */
+        header [data-testid="stGithubLink"] {
+            display: none;
+        }
+        
+        /* Optional: hide entire Streamlit header bar */
+        header {
+            visibility: hidden;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -738,10 +748,7 @@ with col2:
         else:
             st.warning("Logo not found. Please add 'We_logo.svg695283768.png' to the project directory.")
     except:
-        st.markdown("🔷 **UE**")
-    
-    st.markdown("<h2 style='text-align: center; color: #6B21A8;'>SQL Mastery Training Program</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: #757575; font-size: 14px;'>Employee Job Training - SQL Skills Assessment</p>", unsafe_allow_html=True)
+        pass
 
 st.markdown("---")
 
@@ -787,9 +794,9 @@ with st.sidebar:
             st.session_state.admin_authenticated = False
             st.rerun()
 
-# If admin is authenticated, show admin dashboard at top
+# Admin dashboard title handled below
 if st.session_state.admin_authenticated:
-    st.set_page_config(page_title="SQL Assessment - Admin Mode", layout="wide")
+    pass
 
 # Update title with styling
 if st.session_state.admin_authenticated:
